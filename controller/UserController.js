@@ -1,4 +1,4 @@
-import User from '../models/Usermodel.js'
+import User from '../models/UserModel.js'
 import argon2 from "argon2"
 import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
