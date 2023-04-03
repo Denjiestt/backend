@@ -2,7 +2,6 @@ import User from '../models/Usermodel.js'
 import argon2 from "argon2"
 import jwt from "jsonwebtoken"
 import nodemailer from "nodemailer"
-import fs from "fs"
 
 export const getAllAkun = async(req,res)=>{
     try{
@@ -47,22 +46,22 @@ export const createAkun = async(req,res)=>{
         })
 
         //Mengirim pesan jika sudah berhasil mendaftar
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-              user: process.env.EMAIL,
-              pass: process.env.PASS,
-            }
-          });
+        // const transporter = nodemailer.createTransport({
+        //     service: 'gmail',
+        //     auth: {
+        //       user: process.env.EMAIL,
+        //       pass: process.env.PASS,
+        //     }
+        //   });
       
-          const mailOptions = {
-            from: process.env.EMAIL,
-            to: req.body.email,
-            subject:"Register Berhasil",
-            text:"Register Berhasil akun yang bernama "+req.body.name+""
-          };
+        //   const mailOptions = {
+        //     from: process.env.EMAIL,
+        //     to: req.body.email,
+        //     subject:"Register Berhasil",
+        //     text:"Register Berhasil akun yang bernama "+req.body.name+""
+        //   };
       
-          transporter.sendMail(mailOptions);
+        //   transporter.sendMail(mailOptions);
 
         res.status(200).json({message:"Berhasil Membuat Akun", data:cari})
     }catch(error){
